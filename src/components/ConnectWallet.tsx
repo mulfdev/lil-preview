@@ -66,7 +66,7 @@ const ConnectWalletBtn = () => {
                   <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                     <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                       <button
-                        className="inline-flex items-center px-4 py-2 border border-transparent font-balsamiq rounded-full shadow-sm text-white bg-[#00AB60] hover:[#022270]"
+                        className="inline-flex items-center px-4 py-2 border border-transparent font-balsamiq rounded-md shadow-sm text-white bg-[#00AB60] hover:[#022270]"
                         onClick={() => {
                           close();
                           disconnect();
@@ -123,7 +123,7 @@ const ConnectWalletBtn = () => {
                         <button
                           disabled={!connector.ready}
                           key={connector.id}
-                          className="inline-flex items-center px-4 py-2 border border-transparent font-balsamiq rounded-full shadow-sm text-white bg-[#00AB60] hover:[#022270]"
+                          className="inline-flex items-center px-4 py-2 border border-transparent font-balsamiq rounded-md shadow-sm text-white bg-[#00AB60] hover:[#022270]"
                           onClick={() => {
                             close();
                             connect({ connector });
