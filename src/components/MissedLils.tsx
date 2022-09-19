@@ -8,9 +8,16 @@ interface Props {
   isFetching: boolean;
   isFetched: boolean;
   setModalOpen: Dispatch<SetStateAction<boolean>>;
+  setSelectedLil: Dispatch<SetStateAction<Record<string, unknown>>>;
 }
 
-export default function MissedLils({ data, isFetched, isFetching, setModalOpen }: Props) {
+export default function MissedLils({
+  data,
+  isFetched,
+  isFetching,
+  setModalOpen,
+  setSelectedLil,
+}: Props) {
   const imgData = data?.[2];
 
   const [missedList, setMissedList] = useState([
@@ -67,7 +74,10 @@ export default function MissedLils({ data, isFetched, isFetching, setModalOpen }
                       src={`data:image/svg+xml;base64,${lil.imgData}`}
                       className=" object-cover object-center"
                       alt="lil"
-                      onClick={() => setModalOpen(true)}
+                      onClick={() => {
+                        setSelectedLil(lil);
+                        setModalOpen(true);
+                      }}
                     />
                   </div>
                 </div>

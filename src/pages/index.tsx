@@ -63,6 +63,7 @@ const Home: NextPage = () => {
   }, [data, isIdle]);
 
   const [open, setOpen] = useState(false);
+  const [selectedLil, setSelectedLil] = useState({});
 
   return (
     <div className="bg-white h-full w-full">
@@ -75,11 +76,12 @@ const Home: NextPage = () => {
           isFetching={isFetching}
           isFetched={isFetched}
           setModalOpen={setOpen}
+          setSelectedLil={setSelectedLil}
         />
       </div>
 
       <Wtf />
-      <EulogyModal open={open} setOpen={setOpen} />
+      <EulogyModal open={open} setOpen={setOpen} selectedLil={selectedLil} />
     </div>
   );
 };
