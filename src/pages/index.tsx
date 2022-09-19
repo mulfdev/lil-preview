@@ -45,7 +45,7 @@ const Home: NextPage = () => {
   const [lilData, setLilData] = useState<Result | undefined>();
 
   const { data, isFetching, isFetched } = useContractRead({
-    addressOrName: "0x6c3810649c140d2f43Ec4D88B2f733e1375E4C74",
+    addressOrName: process.env.NEXT_PUBLIC_ORACLE_ADDRESS,
     contractInterface: LilNounsOracleAbi,
     functionName: "fetchNextNoun",
     watch: true,
@@ -53,9 +53,12 @@ const Home: NextPage = () => {
   });
 
   useEffect(() => {
+    console.log(data);
     if (data?.[3] === AuctionState.ACTIVE) return;
 
     setLilData(data);
+
+    console.log(data);
   }, [data]);
 
   return (

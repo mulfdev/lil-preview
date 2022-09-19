@@ -15,7 +15,7 @@ const AuctionBtn = ({ data, isFetching }: Props) => {
     error: prepareError,
     isError: isPrepareError,
   } = usePrepareContractWrite({
-    addressOrName: "0x6c3810649c140d2f43Ec4D88B2f733e1375E4C74",
+    addressOrName: process.env.NEXT_PUBLIC_ORACLE_ADDRESS || "",
     contractInterface: LilNounsOracleAbi,
     functionName: "settleAuction",
     args: [data?.[0]],

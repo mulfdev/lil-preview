@@ -2,7 +2,7 @@ import { Tab } from "@headlessui/react";
 import { Result } from "ethers/lib/utils";
 
 import { AuctionState } from "../pages";
-import { useAccount, useBlockNumber } from "wagmi";
+import { useBlockNumber } from "wagmi";
 
 import ConnectWalletBtn from "./ConnectWallet";
 
@@ -20,7 +20,6 @@ interface Props {
 
 const InfoLil = ({ data, isFetching, isFetched }: Props) => {
   const { data: blockNumber } = useBlockNumber();
-  const { isConnected } = useAccount();
   return (
     <div className="mx-auto max-w-2xl px-4 py-6 lg:max-w-6xl">
       <div className="w-full flex justify-between items-end">
