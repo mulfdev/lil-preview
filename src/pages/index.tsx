@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
+import { useIdle } from "react-use";
 
 const MissedLils = dynamic(() => import("../components/MissedLils"), {
   ssr: false,
@@ -18,6 +19,7 @@ import LilNounsOracleAbi from "../abis/preview.json";
 import { useContractRead } from "wagmi";
 import { useEffect, useState } from "react";
 import { Result } from "ethers/lib/utils";
+import EulogyModal from "../components/EulogyModal";
 
 /*
 
@@ -52,11 +54,15 @@ const Home: NextPage = () => {
     overrides: { blockTag: "pending" },
   });
 
+  const isIdle = useIdle(60e3);
+
   useEffect(() => {
-    if (data?.[3] === AuctionState.ACTIVE) return;
+    if (data?.[3] === AuctionState.ACTIVE || isIdle) return;
 
     setLilData(data);
-  }, [data]);
+  }, [data, isIdle]);
+
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="bg-white h-full w-full">
@@ -64,10 +70,16 @@ const Home: NextPage = () => {
         <div className="bg-[#22212C] ">
           <InfoLil data={lilData} isFetching={isFetching} isFetched={isFetched} />
         </div>
-        <MissedLils data={lilData} isFetching={isFetching} isFetched={isFetched} />
+        <MissedLils
+          data={lilData}
+          isFetching={isFetching}
+          isFetched={isFetched}
+          setModalOpen={setOpen}
+        />
       </div>
 
       <Wtf />
+      <EulogyModal open={open} setOpen={setOpen} />
     </div>
   );
 };

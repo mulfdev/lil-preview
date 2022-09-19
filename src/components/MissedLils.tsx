@@ -1,16 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import type { Result } from "ethers/lib/utils";
-import Image from "next/future/image";
-import { useLayoutEffect, useState } from "react";
+import { Dispatch, SetStateAction, useLayoutEffect, useState } from "react";
 import { AuctionState } from "../pages";
 
 interface Props {
   data: Result | undefined;
   isFetching: boolean;
   isFetched: boolean;
+  setModalOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function MissedLils({ data, isFetched, isFetching }: Props) {
+export default function MissedLils({ data, isFetched, isFetching, setModalOpen }: Props) {
   const imgData = data?.[2];
 
   const [missedList, setMissedList] = useState([
@@ -61,12 +61,13 @@ export default function MissedLils({ data, isFetched, isFetching }: Props) {
                   className="group relative drop-shadow-md max-w-[256px] filter grayscale hover:filter-none"
                 >
                   <div className=" rounded-md bg-gray-200  lg:aspect-none ">
-                    <Image
+                    <img
                       width={208}
                       height={208}
                       src={`data:image/svg+xml;base64,${lil.imgData}`}
                       className=" object-cover object-center"
                       alt="lil"
+                      onClick={() => setModalOpen(true)}
                     />
                   </div>
                 </div>
