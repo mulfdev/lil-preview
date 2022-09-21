@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import type { Result } from "ethers/lib/utils";
-import { Dispatch, SetStateAction, useLayoutEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useLayoutEffect, useState } from "react";
 import { AuctionState } from "../pages";
 import Tombstone from "./Tombstone";
 
@@ -26,7 +26,7 @@ export default function MissedLils({
       imgData: "",
     },
   ]);
-  useLayoutEffect(() => {
+  useEffect(() => {
     return () => {
       if (typeof imgData == "string" && imgData.length > 0) {
         if (missedList.length < 3) {
@@ -42,7 +42,6 @@ export default function MissedLils({
       }
     };
   }, [imgData]);
-
 
   return (
     <div className="bg-white hidden md:block">
