@@ -89,7 +89,7 @@ const EulogyModal = ({ open, setOpen, selectedLil }: Props) => {
                         />
                         <button
                           type="submit"
-                          className="hidden md:inline-flex items-center cursor-pointer rounded-lg border text-center border-transparent bg-[#FFFF80] px-5 py-2 w-auto md:w-2/3 text-xl font-medium text-black shadow-sm hover:bg-[#83e6e6]"
+                          className="hidden md:inline-flex items-center cursor-pointer rounded-lg border text-center border-transparent bg-[#FFFF80] px-5 py-2 w-auto md:w-2/3 text-xl font-medium text-black shadow-sm hover:bg-[#e6e673]"
                           onClick={() => {
                             if (eulogy.trim().length < 3) return;
                             window.open(
