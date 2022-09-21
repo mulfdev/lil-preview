@@ -2,6 +2,7 @@
 import { Dispatch, Fragment, SetStateAction } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import Tombstone from "./Tombstone";
 
 interface Props {
   open: boolean;
@@ -12,7 +13,7 @@ interface Props {
 const EulogyModal = ({ open, setOpen, selectedLil }: Props) => {
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+      <Dialog as="div" className="relative z-10 " onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-200"
@@ -35,27 +36,33 @@ const EulogyModal = ({ open, setOpen, selectedLil }: Props) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className=" transform rounded-lg bg-[#22212C] px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 w-full sm:max-w-lg sm:p-6 min-w-[800px] min-h-[900px]">
+              <Dialog.Panel className=" transform bg-[#22212C] px-4 text-left shadow-xl transition-all  w-full sm:max-w-lg sm:p-6 min-w-full min-h-screen">
                 <p
                   className="text-[#92FFFF] text-xl mb-8 cursor-pointer"
                   onClick={() => setOpen(false)}
                 >
                   ↵ Back to the block
                 </p>
-                <div className="flex justify-center min-h-full border">
-                  <section className="w-2/3 border">
-                    <div className="w-full">
-                      <img
-                        src={`data:image/svg+xml;base64,${selectedLil.imgData}`}
-                        className=" object-cover object-center"
-                        alt="lil"
-                      />
-                    </div>
+
+                <Tombstone />
+                <p className="text-white text-4xl">In Memorium</p>
+                <div className="flex justify-center max-w-5xl mx-auto">
+                  <section className="w-full">
+                    <img
+                      src={`data:image/svg+xml;base64,${selectedLil.imgData}`}
+                      className=" object-cover object-center h-96 mr-auto"
+                      alt="lil"
+                    />
                   </section>
 
-                  <section className="w-1/3 text-white">
+                  <section className="w-full text-white">
                     <h2 className="text-3xl">Lil Noun</h2>
                     <p className="text-xl">Burnt On</p>
+                    <textarea
+                      rows={10}
+                      className="bg-[#22212C] border rounded w-2/3 text-2xl"
+                      placeholder="Rest in pixels, Lil Noun"
+                    />
                   </section>
                 </div>
               </Dialog.Panel>
