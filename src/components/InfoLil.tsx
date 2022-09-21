@@ -20,7 +20,7 @@ const InfoLil = ({ data, isFetching, isFetched }: Props) => {
   const { data: blockNumber } = useBlockNumber();
   const { isConnected } = useAccount();
   return (
-    <div className="mx-auto max-w-2xl px-4 pt-6 pb-28 lg:max-w-6xl">
+    <div className="mx-auto max-w-2xl px-4 pt-6 pb-12 lg:max-w-6xl">
       <Header />
       <div className="flex flex-wrap items-start pt-8 ">
         <h1 className="text-5xl font-bold mb-2 text-[#F8F8F2] w-full">Lil&apos; Block Party </h1>
