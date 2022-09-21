@@ -3,14 +3,14 @@ import Link from "next/link";
 import { SiTwitter } from "react-icons/si";
 import { ImDatabase } from "react-icons/im";
 const ConnectWalletBtn = dynamic(() => import("./ConnectWallet"), { ssr: false });
-import Logo from "../images/lil-logo.png";
+import Logo from "../images/logo.svg";
 
 const Header = () => {
   return (
     <div className="w-full flex justify-between items-start">
       <span className="w-3/5">
         <Link href="https://lilnouns.wtf">
-          <img src={Logo.src} alt="logo" className="cursor-pointer" />
+          <img src={Logo.src} alt="logo" className="cursor-pointer h-10" />
         </Link>
       </span>
 
