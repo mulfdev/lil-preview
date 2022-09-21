@@ -20,6 +20,10 @@ const Header = () => {
           <a className="text-white text-2xl hover:underline mr-2 md:mr-0">Twitter</a>
         </Link>
 
+        <Link href="https://dune.com/nvonpentz/lilblockparty">
+          <a className="text-white text-2xl hover:underline mr-2 md:mr-0">Dune</a>
+        </Link>
+
         <span className="hidden md:block">
           <ConnectWalletBtn />
         </span>

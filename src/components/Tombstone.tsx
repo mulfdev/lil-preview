@@ -1,6 +1,6 @@
 const Tombstone = () => {
   return (
-    <div className="w-16 h-16">
+    <div className="w-32 h-32 block">
       <svg viewBox="0 0 138 140" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="7.10645" y="134.167" width="122.5" height="5.83333" fill="#343235" />
         <rect x="7.10645" y="110.833" width="122.5" height="5.83333" fill="#343235" />
